@@ -1,0 +1,224 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(110, 37, 207);
+    font-family: lobster, Arial, Helvetica, sans-serif;
+    color: white;
+}
+/****************************** INDEX ******************************/
+/****************************** INDEX ******************************/
+.index{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px 50px 90vh;
+    grid-template-areas: 
+        'suporte suporte'
+        'cabecalho cabecalho'
+        'area1 area2';
+}
+/****************************** (INDEX) SUPORTE ******************************/
+.suporte {
+    display: flex;
+    background-color: rgb(88,29,168);
+    grid-area: suporte;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5vw;
+    font-size: 1.2em;
+}
+/****************************** (INDEX) CABECALHO ******************************/
+.cabecalho {
+    display: flex;
+    background-color: rgb(110, 37, 207);
+    grid-area: cabecalho;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+.login a {
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.login :nth-child(1) {
+    color: white;
+}
+.login :nth-child(2) {
+    border-radius: 30px;
+    background-color: aquamarine;
+}
+/****************************** (INDEX) AREA1 ******************************/
+.area1 {
+    display: flex;
+    background-color: rgb(110, 37, 207);
+    grid-area: area1;
+    text-align: center;
+    padding-top: 20vh;
+    padding-left: 15vw;
+}
+.area1 h1 {
+    font-size: 2em;
+}
+/***************************** (INDEX) AREA2 *****************************/
+.area2 {
+    display: flex;
+    background-color: rgb(110, 37, 207);
+    grid-area: area2;
+    
+    align-items: center;
+}
+#iphone1 {
+    height: 60vh;           
+}
+#iphone2 {
+    height: 50vh;
+}
+/***************************** CADASTRO *****************************/
+/***************************** CADASTRO *****************************/
+.cadastro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px 100px 79vh;
+    grid-template-areas: 
+        'suporte suporte'
+        'logo logo'
+        'area-cadastro .';
+}
+/***************************** (CADASTRO) LOGOTIPO *****************************/
+.logo {
+    grid-area: logo;
+    padding-left: 5vw;
+    font-size: 1.5em;
+}
+/***************************** (CADASTRO) MAIN *****************************/
+.area-cadastro {
+    grid-area: area-cadastro;
+    padding-left: 5vw;
+}
+/***************************** (CADASTRO) FORMULARIO *****************************/
+.formulario {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    margin-top: 8vh;
+}
+.formulario p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.formulario input {
+    width: 40vw;
+    color: white;
+    background-color: transparent;
+    margin-bottom: 15px;
+    border: 0;
+    border-bottom: 1px solid white;
+    font-size: 1em;
+}
+.formulario input::placeholder {
+    font-family: lobster, Arial, Helvetica, sans-serif;
+    color: white;
+}
+#fsexo, #msexo {
+    width: 20px;
+}
+#cidade {
+    width: 15vw;
+    font-family: lobster, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid 1px white;
+}
+#cidade option {
+    color: gray;
+}
+/***************************** (CADASTRO) RESPONSIVIDADE *****************************/
+@media screen and (max-width: 570px) {
+    .formulario input {
+        width: 80vw;
+    }
+    .cadastro {
+        grid-template-areas: 
+        'suporte suporte'
+        'logo logo'
+        'area-cadastro area-cadastro';
+        justify-items: center;
+    }
+    .suporte {
+        display: none;
+    }
+    #cidade {
+        width: 40vh;
+    }
+}
+/***************************** LOGIN *****************************/
+/***************************** LOGIN *****************************/
+.pagina-login {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 1fr 70vh;
+    grid-template-areas: 
+        'suporte'
+        'logo-login'
+        'form-login';
+}
+.logo-login {
+    grid-area: logo-login;
+    display: flex;
+    font-size: 1.5em;
+    justify-content: center;
+    margin-top: 10vh;
+}
+/***************************** (LOGIN) FORMULARIO *****************************/
+.form-login {
+    grid-area: form-login;
+    display: flex;
+    justify-content: center;
+    margin-top: 20vh;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form input {
+    font-family: lobster, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+#email-login, #senha-login {
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid 1px white;
+    width: 500px;
+    height: 30px;
+}
+.form input::placeholder{
+    color: white;
+}
+.form input[type=submit] {
+    margin-top: 20px;
+    background-color: aquamarine;
+    width: 200px;
+    height: 50px;
+    border: 0;
+    border-radius: 50px;
+    color: rgb(110, 37, 207);
+}
+/***************************** (LOGIN) RESPONSIVIDADE *****************************/
+@media screen and (max-width: 570px) {
+    #email-login, #senha-login {
+        width: 80vw;
+    }
+    .form input[type=submit] {
+        width: 150px;
+        height: 40px;
+        border-radius: 40px;
+    }
+    .suporte {
+        font-size: 1em;
+    }
+}
