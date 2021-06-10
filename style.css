@@ -2,9 +2,9 @@ html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(110, 37, 207);
     font-family: lobster, Arial, Helvetica, sans-serif;
     color: white;
+    background-color: rgb(238, 238, 238);
 }
 /****************************** INDEX ******************************/
 /****************************** INDEX ******************************/
@@ -29,7 +29,10 @@ html,body {
 }
 /****************************** (INDEX) CABECALHO ******************************/
 .cabecalho {
+    top: 30px;
     display: flex;
+    position: sticky;
+    top: 0;
     background-color: rgb(110, 37, 207);
     grid-area: cabecalho;
     align-items: center;
@@ -79,17 +82,22 @@ html,body {
 .cadastro {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 30px 100px 79vh;
+    grid-template-rows: 30px 90px 100vh;
     grid-template-areas: 
         'suporte suporte'
         'logo logo'
         'area-cadastro .';
+    background-color: rgb(110, 37, 207);
 }
 /***************************** (CADASTRO) LOGOTIPO *****************************/
 .logo {
     grid-area: logo;
     padding-left: 5vw;
-    font-size: 1.5em;
+    font-size: 1.4em;
+}
+.logo h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /***************************** (CADASTRO) MAIN *****************************/
 .area-cadastro {
@@ -101,20 +109,25 @@ html,body {
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
-    margin-top: 8vh;
+    margin-top: 2vh;
 }
 .formulario p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.formulario input {
+#nome,
+#senha,
+#confirma-senha,
+#email,
+#confirma-email,
+#telefone {
     width: 40vw;
     color: white;
     background-color: transparent;
     margin-bottom: 15px;
     border: 0;
     border-bottom: 1px solid white;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 .formulario input::placeholder {
     font-family: lobster, Arial, Helvetica, sans-serif;
@@ -126,7 +139,7 @@ html,body {
 #cidade {
     width: 15vw;
     font-family: lobster, Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 0.9em;
     color: white;
     background-color: transparent;
     border: 0;
@@ -135,23 +148,78 @@ html,body {
 #cidade option {
     color: gray;
 }
+.formulario label {
+    font-size: 0.9em;
+}
+.botao-cadastro {
+    font-family: lobster, Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    margin-top: 20px;
+    background-color: aquamarine;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 50px;
+    color: rgb(110, 37, 207);
+}
+.grupo {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+}
+.formulario a {
+    font-size: 0.7em;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
 /***************************** (CADASTRO) RESPONSIVIDADE *****************************/
 @media screen and (max-width: 570px) {
-    .formulario input {
-        width: 80vw;
-    }
     .cadastro {
+        grid-template-columns: 1fr;
+        grid-template-rows: 90px 100vh;
         grid-template-areas: 
-        'suporte suporte'
-        'logo logo'
-        'area-cadastro area-cadastro';
+            'logo logo'
+            'area-cadastro area-cadastro';
         justify-items: center;
+
+    }
+    .logo h1 {
+        font-size: 1.7em;
+    }
+    .area-cadastro {
+        padding-left: 0;
+    }
+    #nome,
+    #senha,
+    #confirma-senha,
+    #email,
+    #confirma-email,
+    #telefone,
+    #cidade {
+        width: 80vw;
+        font-size: 0.8em;
+    }
+    .formulario label,
+    .botao-cadastro,
+    .formulario p {
+        font-size: 0.8em;
+    }
+    .botao-cadastro {
+        align-self: center;
+        height: 30px;
+        margin-top: 10px;
+    }
+    .formulario a {
+        font-size: 0.6em;
+        color: white;
+        text-decoration: none;
+        align-self: center;
+        margin-top: 10px;
     }
     .suporte {
         display: none;
-    }
-    #cidade {
-        width: 40vh;
     }
 }
 /***************************** LOGIN *****************************/
@@ -164,6 +232,7 @@ html,body {
         'suporte'
         'logo-login'
         'form-login';
+    background-color: rgb(110, 37, 207);
 }
 .logo-login {
     grid-area: logo-login;
@@ -199,11 +268,11 @@ html,body {
 .form input::placeholder{
     color: white;
 }
-.form input[type=submit] {
+.botao-login {
     margin-top: 20px;
     background-color: aquamarine;
     width: 200px;
-    height: 50px;
+    height: 40px;
     border: 0;
     border-radius: 50px;
     color: rgb(110, 37, 207);
@@ -213,7 +282,7 @@ html,body {
     #email-login, #senha-login {
         width: 80vw;
     }
-    .form input[type=submit] {
+    .botao-login {
         width: 150px;
         height: 40px;
         border-radius: 40px;
@@ -221,4 +290,110 @@ html,body {
     .suporte {
         font-size: 1em;
     }
+}
+
+/*****************************CONTEUDO*****************************/
+.pagina-conteudo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 70px 45vh 1fr;
+    grid-template-areas: 
+        'suporte'
+        'cabecalho-principal'
+        'destaque'
+        'main-conteudo';
+}
+.cabecalho-principal {
+    position: sticky;
+    display: grid;
+    grid-template-columns: 1fr 35vw;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'nav info';
+    grid-area: cabecalho-principal;
+    color: blueviolet;
+    background-color: white;
+}
+.cabecalho-principal a {
+    text-decoration: none;
+    padding: 25px 20px;
+    overflow: hidden;
+}
+.cabecalho-principal a:hover {
+    background-color: rgb(218, 218, 218);
+}
+.destaque {
+    grid-area: destaque;
+    height: 85%;
+    background-color: blueviolet;
+    margin: 3vh 5vw 3vh 5vw;
+}
+.main-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: main-conteudo;
+    margin: 3vh 8vw 3vh 5vw;
+}
+.navegacao {
+    display: flex;
+    grid-area: nav;
+    align-items: center;
+}
+.navegacao h1 {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-area: info;
+    padding-right: 5vw;
+}
+.info img {
+    margin-left: 10vw;
+}
+.img-perfil {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: blueviolet;
+    margin-right: 1vw;
+}
+.anuncio {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 30%;
+    grid-template-areas: 
+        'img-produto'
+        'info-produto';
+    width: 320px;
+    height: 300px;
+    background-color: white;
+    margin-right: 3vw;
+    margin-bottom: 3vw;
+    box-shadow: 5px 5px 5px rgb(224, 224, 224);
+}
+.anuncio > div {
+    grid-area: info-produto;
+    color: blueviolet;
+    font-size: 0.9em;
+    font-family: roboto, Arial, Helvetica, sans-serif;
+    line-height: 25px;
+    padding: 10px 10px 10px 10px;
+    border-top: 1px rgb(219, 219, 219) solid;
+    overflow: hidden;
+}
+.anuncio h2, h3, p {
+    margin: 0;
+}
+.anuncio img {
+    position: absolute;
+    grid-area: img-produto;
+    height: 100%;
+    justify-self: center;
+}
+.anuncio:hover {
+    box-shadow: 5px 5px 5px rgb(168, 168, 168);
 }

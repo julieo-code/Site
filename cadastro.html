@@ -18,12 +18,12 @@
             <h1>LogoTipo</h1>
         </div>
         <main class="area-cadastro">
-            <form action="" method="post" class="formulario">
+            <form action="http://localhost:3000/cadastro.html" method="post" class="formulario">
                 <input type="text" name="nome" id="nome" placeholder="Nome completo:">
                 <input type="password" name="senha" id="senha" placeholder="Senha:">
-                <input type="password" name="confirma-senha" id="confirma-senha" placeholder="Confirme sua senha:">
+                <input type="password" name="confirmaSenha" id="confirma-senha" placeholder="Confirme sua senha:">
                 <input type="email" name="email" id="email" placeholder="Email:">
-                <input type="email" name="confirma-email" id="confirma-email" placeholder="Confirme seu email:">
+                <input type="email" name="confirmaEmail" id="confirma-email" placeholder="Confirme seu email:">
                 <input type="tel" name="telefone" id="telefone" placeholder="Telefone:">
                 <select name="cidade" id="cidade">
                     <option value="Null" selected>Cidade:</option>
@@ -39,6 +39,10 @@
                     <input type="radio" name="sexo" id="fsexo">
                     <label for="msexo">Masculino</label>
                     <input type="radio" name="sexo" id="msexo">
+                </div>
+                <div class="grupo">
+                    <input type="submit" value="Enviar" class="botao-cadastro">
+                    <a href="./cadastro.html">Fazer Login</a>
                 </div>
             </form>
         </main>
