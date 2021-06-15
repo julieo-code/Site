@@ -178,7 +178,7 @@ html,body {
 @media screen and (max-width: 570px) {
     .cadastro {
         grid-template-columns: 1fr;
-        grid-template-rows: 90px 100vh;
+        grid-template-rows: 90px 95vh;
         grid-template-areas: 
             'logo logo'
             'area-cadastro area-cadastro';
@@ -186,7 +186,7 @@ html,body {
 
     }
     .logo h1 {
-        font-size: 1.7em;
+        font-size: 1.8em;
     }
     .area-cadastro {
         padding-left: 0;
@@ -199,20 +199,21 @@ html,body {
     #telefone,
     #cidade {
         width: 80vw;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     .formulario label,
     .botao-cadastro,
     .formulario p {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     .botao-cadastro {
+        width: 80vw;
         align-self: center;
         height: 30px;
         margin-top: 10px;
     }
     .formulario a {
-        font-size: 0.6em;
+        font-size: 0.7em;
         color: white;
         text-decoration: none;
         align-self: center;
@@ -220,6 +221,9 @@ html,body {
     }
     .suporte {
         display: none;
+    }
+    .grupo {
+        align-self: center;
     }
 }
 /***************************** LOGIN *****************************/
