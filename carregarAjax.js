@@ -1,6 +1,3 @@
-const conteudo = document.querySelector('.pagina-conteudo')
-const url = './parte.html'
-
 function navegarAjax(url, seletor) {
     if(!url || !seletor) return
 
@@ -11,4 +8,5 @@ function navegarAjax(url, seletor) {
         })
 }
 
-navegarAjax(url, conteudo)
+module.exports = { navegarAjax }
+// navegarAjax(url, conteudo)
