@@ -13,17 +13,22 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.post("/login.html", (req, res) => {
-    (async () => {
-        const dados = await db.validarLogin(req.body.email, req.body.senha)
-        if(dados[0].length == 0) {  //Se usuario não tiver cadastro
-            console.log('nao')
-        } else {
-            res.redirect("https://site-red-five.vercel.app/conteudo.html")
-            const conteudo = document.querySelector('.ajax')
-            const url = './conteudo.html'
-            navegarAjax(url, conteudo)
+    async function logar() {
+        try {
+            const dados = await db.validarLogin(req.body.email, req.body.senha)
+            if(dados[0].length == 0) {  //Se usuario não tiver cadastro
+                console.log('nao')
+            } else {
+                res.redirect("https://site-red-five.vercel.app/conteudo.html")
+                const conteudo = document.querySelector('.ajax')
+                const url = './conteudo.html'
+                navegarAjax(url, conteudo)
+            }
+        } catch (err) {
+            console.log(err)
         }
-    })()
+    }
+    logar()
 })
 
 app.post("/cadastro.html", (req, res) => {
@@ -33,8 +38,4 @@ app.post("/cadastro.html", (req, res) => {
         'confirmaSenha': req.body.confirmaSenha,
         'confirmaEmail': req.body.confirmaEmail
     }
-
-    (async () => {
-        
-    })()
 })
